@@ -1,0 +1,21 @@
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.package]
+version = "0.0.0-a0"
+edition = "2021"
+description = "pyo3 bindings for Graphster"
+license = "BSD-3-Clause"
+readme = "README.md"
+repository = "https://github.com/graphster-dev/pyo3-graphster"
+
+[workspace.dependencies]
+graphster = { features = ["rayon"], path = "../graphster" }
+rayon = "1.10.0"
+polars = "0.40.0"
+pyo3-polars = "0.14.0"
+pyo3 = "0.21.2"
+hashbrown = "0.11.2"
+
+pyo3-graphster = { version = "0.0.0-a0", path = "crates/pyo3-graphster" }

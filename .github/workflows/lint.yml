@@ -1,0 +1,26 @@
+name: Lint Pull Request
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - src/**
+      - .github/workflows/test.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - src/**
+      - .github/workflows/test.yml
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - name: Lint with clippy
+        run: make lint

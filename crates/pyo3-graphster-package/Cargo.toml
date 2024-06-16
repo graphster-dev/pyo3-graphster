@@ -1,0 +1,12 @@
+[package]
+name = "pyo3-graphster-package"
+version = { workspace = true }
+description = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+license = { workspace = true }
+readme = "../../README.md"
+
+[dependencies]
+pyo3-graphster = { workspace = true }
+pyo3 = { workspace = true }

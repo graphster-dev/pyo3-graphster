@@ -1,0 +1,31 @@
+[project]
+name = "pyo3_graphster"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["maturin==1.6.0", "ruff==0.4.9", "pyright==1.1.367"]
+
+[build-system]
+requires = ["maturin==1.6.0", "setuptools"]
+build-backend = "maturin"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+exclude = ["tests", "examples"]
+manifest-path = "crates/pyo3-graphster-package/Cargo.toml"
+module-name = "pyo3_graphster._pyo3_graphster"
+
+[tool.ruff]
+exclude = [
+    "__pycache__",
+    ".git",
+    ".github",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+]
+line-length = 88
+
+[tool.pyright]
+typeCheckingMode = "strict"
+include = ["pyo3_graphster"]
