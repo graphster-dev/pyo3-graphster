@@ -1,0 +1,22 @@
+[package]
+name = "pyo3-graphster"
+version = { workspace = true }
+description = { workspace = true }
+edition = { workspace = true }
+repository = { workspace = true }
+license = { workspace = true }
+readme = "../../README.md"
+
+[dependencies]
+graphster = "0.0.0-a1"
+polars = { workspace = true, optional = true }
+pyo3-polars = { workspace = true, optional = true }
+pyo3 = "0.21.2"
+hashbrown = "0.11.2"
+
+[features]
+polars = ["dep:polars", "dep:pyo3-polars"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
